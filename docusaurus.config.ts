@@ -17,14 +17,14 @@ const config: Config = {
   // Set the production url of your site here
   url: 'https://3psLCCA.github.io',
   // Org/user GitHub Pages sites (repo named "<org>.github.io") are served at
-  // the domain root, so baseUrl stays '/'. A project page (any other repo
-  // name) would need baseUrl: '/<repoName>/' instead.
+  // the domain root, so baseUrl stays '/'. This requires the deploying repo
+  // to actually be named "3psLCCA.github.io" (currently it's "3psLCCA",
+  // which GitHub instead serves at /3psLCCA/ — rename the repo to match).
   baseUrl: '/',
 
   // GitHub pages deployment config.
   organizationName: '3psLCCA', // GitHub org: https://github.com/3psLCCA
-  projectName: '3psLCCA.github.io', // The repo that publishes this site via GitHub Pages.
-  deploymentBranch: 'main', // `docusaurus deploy` pushes the build to this branch.
+  projectName: '3psLCCA.github.io', // The repo that must publish this site via GitHub Pages.
   trailingSlash: false,
 
   onBrokenLinks: 'throw',
