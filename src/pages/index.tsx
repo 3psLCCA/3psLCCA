@@ -85,15 +85,23 @@ const INSTALL_INSTRUCTIONS: Record<DetectedPlatform, ReactNode> = {
       package locally - <Todo>exact install command</Todo>
     </>
   ),
+  android: (
+    <>
+      3psLCCA doesn't have an Android build yet - a web app for use on any device,
+      including Android, is coming soon.
+    </>
+  ),
 };
 
 const SYS_REQUIREMENTS: Record<DetectedPlatform, ReactNode[]> = {
   windows: [<>Windows 10 or later (64-bit)</>],
   linux: [<>Linux (64-bit)</>],
+  // macOS falls into this bucket too - the Conda package is the only option there.
   other: [
     <>Windows, Linux, or macOS (64-bit)</>,
     <>Requires Python 3.10–3.12 and Miniconda</>,
   ],
+  android: [<>Not yet supported - web app coming soon</>],
 };
 
 function Todo({children}: {children?: ReactNode}) {
