@@ -1,0 +1,63 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* Brand palette sampled from the 3psLCCA logo (indigo/blue, orange, green). */
+:root {
+  --ifm-color-primary: #5457c6;
+  --ifm-color-primary-dark: #4548b3;
+  --ifm-color-primary-darker: #4144a9;
+  --ifm-color-primary-darkest: #35378c;
+  --ifm-color-primary-light: #6467cf;
+  --ifm-color-primary-lighter: #6b6ed3;
+  --ifm-color-primary-lightest: #8688dd;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  --brand-orange: #ff5a2a;
+  --brand-green: #6fac00;
+  --brand-blue: #5457c6;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #9d9dfe;
+  --ifm-color-primary-dark: #8181fd;
+  --ifm-color-primary-darker: #7373fc;
+  --ifm-color-primary-darkest: #4f4ffb;
+  --ifm-color-primary-light: #b9b9fe;
+  --ifm-color-primary-lighter: #c7c7ff;
+  --ifm-color-primary-lightest: #ebebff;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  --brand-orange: #ff7a52;
+  --brand-green: #9ad444;
+  --brand-blue: #9d9dfe;
+}
+
+/* The MUI-based homepage injects its styles via JS (no Emotion SSR
+   extraction is configured), so it renders unstyled without JavaScript.
+   Hidden by default; a <noscript> block on the page flips this pair when
+   scripting is disabled. See src/pages/index.tsx. */
+.no-js-fallback {
+  display: none;
+}
+
+/* Slow continuous spin for decorative logo placements (e.g. Getting Started). */
+@keyframes spin-logo {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-logo {
+  animation: spin-logo 12s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spin-logo {
+    animation: none;
+  }
+}

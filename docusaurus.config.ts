@@ -1,0 +1,137 @@
+import {themes as prismThemes} from 'prism-react-renderer';
+import type {Config} from '@docusaurus/types';
+import type * as Preset from '@docusaurus/preset-classic';
+
+// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+
+const config: Config = {
+  title: '3psLCCA',
+  tagline: 'Integrated economic, environmental & social life cycle cost assessment for bridges',
+  favicon: 'img/favicon.ico',
+
+  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
+  future: {
+    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+  },
+
+  // Set the production url of your site here
+  url: 'https://3psLCCA.github.io',
+  // Org/user GitHub Pages sites (repo named "<org>.github.io") are served at
+  // the domain root, so baseUrl stays '/'. A project page (any other repo
+  // name) would need baseUrl: '/<repoName>/' instead.
+  baseUrl: '/',
+
+  // GitHub pages deployment config.
+  organizationName: '3psLCCA', // GitHub org: https://github.com/3psLCCA
+  projectName: '3psLCCA.github.io', // The repo that publishes this site via GitHub Pages.
+  deploymentBranch: 'main', // `docusaurus deploy` pushes the build to this branch.
+  trailingSlash: false,
+
+  onBrokenLinks: 'throw',
+
+  // Even if you don't use internationalization, you can use this field to set
+  // useful metadata like html lang. For example, if your site is Chinese, you
+  // may want to replace "en" with "zh-Hans".
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
+  },
+
+  plugins: [
+    './plugins/latest-release-plugin.ts',
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      {
+        hashed: true,
+        indexDocs: true,
+        indexBlog: false,
+        indexPages: true,
+        docsRouteBasePath: '/docs',
+      },
+    ],
+  ],
+
+  presets: [
+    [
+      'classic',
+      {
+        docs: {
+          sidebarPath: './sidebars.ts',
+          // TODO: point this at your repo to enable "edit this page" links.
+          editUrl:
+            'https://github.com/3psLCCA/3psLCCA/tree/main/',
+        },
+        blog: false,
+        theme: {
+          customCss: './src/css/custom.css',
+        },
+      } satisfies Preset.Options,
+    ],
+  ],
+
+  themeConfig: {
+    // Replace with your project's social card
+    image: 'img/logo.png',
+    colorMode: {
+      respectPrefersColorScheme: true,
+    },
+    navbar: {
+      title: '3psLCCA',
+      logo: {
+        alt: '3psLCCA Logo',
+        src: 'img/logo.png',
+      },
+      items: [
+        {
+          type: 'docSidebar',
+          sidebarId: 'docsSidebar',
+          position: 'left',
+          label: 'Docs',
+        },
+        {
+          type: 'docsVersionDropdown',
+          position: 'right',
+        },
+        {
+          href: 'https://github.com/3psLCCA',
+          label: 'GitHub',
+          position: 'right',
+        },
+      ],
+    },
+    footer: {
+      style: 'dark',
+      links: [
+        {
+          title: 'Docs',
+          items: [
+            {
+              label: 'Introduction',
+              to: '/docs/intro',
+            },
+            {
+              label: 'Getting Started',
+              to: '/docs/getting-started',
+            },
+          ],
+        },
+        {
+          title: 'More',
+          items: [
+            {
+              label: 'GitHub',
+              href: 'https://github.com/3psLCCA',
+            },
+          ],
+        },
+      ],
+      copyright: `Copyright © ${new Date().getFullYear()} 3psLCCA. Built with Docusaurus.`,
+    },
+    prism: {
+      theme: prismThemes.github,
+      darkTheme: prismThemes.dracula,
+    },
+  } satisfies Preset.ThemeConfig,
+};
+
+export default config;
