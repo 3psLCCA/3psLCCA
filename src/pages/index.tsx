@@ -341,7 +341,7 @@ function DownloadSection() {
     <Section id="download" eyebrow="Get Started" title="Getting and Using It" surface>
       <Grid container spacing={3}>
         {downloads.map((d) => (
-          <Grid size={{xs: 12, sm: 4}} key={d.label}>
+          <Grid size={{xs: 12, sm: 6, md: 3}} key={d.label}>
             <Card
               variant="outlined"
               sx={{
@@ -395,6 +395,49 @@ function DownloadSection() {
             </Card>
           </Grid>
         ))}
+
+        <Grid size={{xs: 12, sm: 6, md: 3}}>
+          <Card variant="outlined" sx={{position: 'relative', height: '100%', textAlign: 'center', overflow: 'visible'}}>
+            <Chip
+              label="Coming soon"
+              color="warning"
+              size="small"
+              sx={{
+                position: 'absolute',
+                top: -12,
+                left: '50%',
+                transform: 'translateX(-50%)',
+                fontWeight: 700,
+                fontSize: '0.68rem',
+                letterSpacing: '0.04em',
+                textTransform: 'uppercase',
+              }}
+            />
+            <CardContent sx={{pt: 3.5}}>
+              <Box
+                sx={{
+                  width: 52,
+                  height: 52,
+                  mx: 'auto',
+                  mb: 1.5,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  bgcolor: '#f5f5f5',
+                  borderRadius: '50%',
+                }}>
+                <Box component="img" src="/img/platforms/web.svg" alt="" sx={{width: 28, height: 28}} />
+              </Box>
+              <Typography sx={{fontWeight: 700, fontSize: '1.1rem'}}>Web App</Typography>
+              <Typography variant="body2" color="text.secondary" sx={{mb: 2}}>
+                Across any platform
+              </Typography>
+              <Button variant="contained" disableElevation fullWidth disabled>
+                Open
+              </Button>
+            </CardContent>
+          </Card>
+        </Grid>
       </Grid>
 
       <Box sx={{mt: 4}}>
@@ -591,7 +634,7 @@ function NoJsFallback() {
           <p>
             Download the latest release ({release.tag}) directly from{' '}
             <a href={releaseUrl}>GitHub Releases</a> - Windows and Linux
-            installers, plus a Conda package for all platforms.
+            installers, plus a Conda package for all platforms. A web app is coming soon.
           </p>
           <ul>
             <li>
